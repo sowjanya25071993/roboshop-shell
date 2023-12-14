@@ -1,9 +1,9 @@
 #!/bin/bash
 ID=$(id -u)
-R="/e[31m"
-G="/e[32m"
-Y="/e[33m"
-N="/e[0m"
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 TIMESTAMP=$(date +%F-%H-%M-%s)
 
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
@@ -19,13 +19,13 @@ VALIDATE(){
 }
 if [ $ID -ne 0 ]
 then 
-echo " $R pls run this script with root access..."
+echo -e " $R pls run this script with root access..."
 exit 1
 else
 echo "u r root user"
 fi
 
-cp mongodb.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
+cp mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 VALIDATE $? "copied repo file ....."
 dnf install mongodb-org -y  &>> $LOGFILE
 VALIDATE $? "installing mongodb......"
