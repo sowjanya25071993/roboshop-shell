@@ -27,9 +27,13 @@ fi
 
 dnf install maven -y &>> $LOGFILE
 VALIDATE $? "installing maven"
-
+id roboshop
+if [ $? -ne 0 ]
+then
 useradd roboshop &>> $LOGFILE
 VALIDATE $? "adding user roboshop"
+else
+echo "user roboshop already exists.....$Y....skipping$N"
 
 mkdir /app &>> $LOGFILE
 VALIDATE $? "creating app directory"
