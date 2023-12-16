@@ -7,7 +7,7 @@ N="\e[0m"
 TIMESTAMP=$(date +%F-%H-%M-%s)
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 echo "script started executing at timestamp::$TIMESTAMP" &>>$LOGFILE
-$MYSQL_HOST=mysql.sowjanyaaws.xyz
+MYSQL_HOST=mysql.sowjanyaaws.xyz
 VALIDATE(){
     if [ $1 -ne 0 ]
     then 
