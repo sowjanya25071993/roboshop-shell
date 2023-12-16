@@ -23,7 +23,7 @@ echo -e " $R pls run this script with root access..."
 exit 1
 else
 echo "u r root user"
-
+fi
 dnf install nginx -y &>> $LOGFILE
 VALIDATE $? "installing nginx"
 
