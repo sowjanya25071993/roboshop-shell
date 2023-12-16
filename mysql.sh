@@ -5,6 +5,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 TIMESTAMP=$(date +%F-%H-%M-%s)
+echo "script started executing at:: $TIMESTAMP"
 
 LOGFILE="/tmp/$0-$TIMESTAMP.log"
 echo "script started executing at timestamp::$TIMESTAMP" &>>$LOGFILE
@@ -23,6 +24,7 @@ echo -e " $R pls run this script with root access..."
 exit 1
 else
 echo "u r root user"
+fi
 
 dnf module disable mysql -y &>>$LOGFILE
 VALIDATE $? "disabling current mysql"

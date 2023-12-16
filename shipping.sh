@@ -23,6 +23,7 @@ echo -e " $R pls run this script with root access..."
 exit 1
 else
 echo "u r root user"
+fi
 
 dnf install maven -y &>> $LOGFILE
 VALIDATE $? "installing maven"
