@@ -32,7 +32,7 @@ then
 useradd roboshop &>> $LOGFILE
 VALIDATE $? "adding roboshop user"
 else
-echo " user roboshop already exists...$Y...skipping...$N"
+echo -e " user roboshop already exists...$Y...skipping...$N"
 fi
 
 mkdir -p /app &>> $LOGFILE
