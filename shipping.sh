@@ -34,8 +34,9 @@ useradd roboshop &>> $LOGFILE
 VALIDATE $? "adding user roboshop"
 else
 echo "user roboshop already exists.....$Y....skipping$N"
+fi
 
-mkdir /app &>> $LOGFILE
+mkdir -p /app &>> $LOGFILE
 VALIDATE $? "creating app directory"
 
 curl -L -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip &>> $LOGFILE
@@ -44,7 +45,7 @@ VALIDATE $? "downloading shippping code"
 cd /app &>> $LOGFILE
 VALIDATE $? "changing to app directory"
 
-unzip /tmp/shipping.zip &>> $LOGFILE
+unzip -o /tmp/shipping.zip &>> $LOGFILE
 VALIDATE $? "unzipping shipping code"
 
 mvn clean package &>> $LOGFILE
