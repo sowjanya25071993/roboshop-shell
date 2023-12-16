@@ -26,11 +26,16 @@ fi
 
 dnf install python36 gcc python3-devel -y &>> $LOGFILE
 VALIDATE $? "installing python36"
-
+id roboshop
+if [ $? -ne 0 ]
+then 
 useradd roboshop &>> $LOGFILE
 VALIDATE $? "adding roboshop user"
+else
+echo " user roboshop already exists...$Y...skipping...$N"
+fi
 
-mkdir /app &>> $LOGFILE
+mkdir -p /app &>> $LOGFILE
 VALIDATE $? "creating app directory"
 
 curl -L -o /tmp/payment.zip https://roboshop-builds.s3.amazonaws.com/payment.zip &>> $LOGFILE
@@ -39,7 +44,7 @@ VALIDATE $? "downloading payment code"
 cd /app  &>> $LOGFILE
 VALIDATE $? "changing to app directory"
 
-unzip /tmp/payment.zip &>> $LOGFILE
+unzip -o /tmp/payment.zip &>> $LOGFILE
 VALIDATE $? "unzippping the code"
 
 pip3.6 install -r requirements.txt &>> $LOGFILE
