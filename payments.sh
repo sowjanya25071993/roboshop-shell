@@ -26,7 +26,7 @@ fi
 
 dnf install python36 gcc python3-devel -y &>> $LOGFILE
 VALIDATE $? "installing python36"
-id roboshop
+id roboshop &>> $LOGFILE
 if [ $? -ne 0 ]
 then 
 useradd roboshop &>> $LOGFILE
