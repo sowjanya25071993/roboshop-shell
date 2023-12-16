@@ -48,7 +48,7 @@ unzip -o /tmp/payment.zip &>> $LOGFILE
 VALIDATE $? "unzippping the code"
 
 pip3.6 install -r requirements.txt &>> $LOGFILE
-VALIDATE $? installing dependancies"
+VALIDATE $? "installing dependancies"
 
 cp /home/centos/roboshop-shell/payment.service /etc/systemd/system/payment.service &>> $LOGFILE
 VALIDATE $? "copying payment service file"
