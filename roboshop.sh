@@ -16,15 +16,15 @@ IP_ADDRESS=$(aws ec2 run-instances --image-id $AMI --count 1 --instance-type $IN
 echo "$i:$IP_ADDRESS"
 aws route53 change-resource-record-sets \  --hosted-zone-id $ZONE_ID  \  --change-batch '
 { 
-    "Comment": "Testing creating a record set", 
-      "Changes": [ { 
-    "Action": "CREATE", 
+    "Comment": "Testing creating a record set" 
+      ,"Changes": [ { 
+    ,"Action": "CREATE"
     "ResourceRecordSet": 
     { 
-        "Name": " '$i'.'$DOMAIN_NAME'",
-         "Type": "A", 
-         "TTL": 1,
-          "ResourceRecords": [ { 
+        "Name": " '$i'.'$DOMAIN_NAME'"
+         ,"Type": "A" 
+         ,"TTL": 1
+          ,"ResourceRecords": [ { 
             "Value": "'$IP_ADDRESS'"
              } ]
               }
