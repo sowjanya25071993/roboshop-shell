@@ -68,7 +68,7 @@ VALIDATE $? "starting catalogue"
 cp /home/centos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo &>> $LOGFILE
 VALIDATE $? "copying mongo repo"
 
-dnf install mongodb-org-shell -y
+dnf install mongodb-org-shell -y &>> $LOGFILES
 VALIDATE $? "installing mongodb client"
 
 mongo --host $MONGODB_HOST </app/schema/catalogue.js
